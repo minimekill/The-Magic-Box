@@ -1,4 +1,4 @@
-# The-Magic-Box
+<center><h1>The-Magic-Box</h1></center>
 
 ## Purpose:
 The purpose of the project is to combine a simple game with a neural network. The game will be a 2d platform, with a box in the middle serving as the "player" of the game. It wont be able to move left or right, but will be able to jump. The only obstacle in the game will be another box, the enemy, moving from the right to the left. The goal will be for the player to jump over the enemy box without touching it. The controller of the player will be a neural network , that will need to be trained to be able to determain when to jump. 
