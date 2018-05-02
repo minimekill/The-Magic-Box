@@ -17,7 +17,8 @@ def to_jump_or_not_to_jump(x1, x2):
 
 def change_parameter():
     data = json.loads(open('jumpingParameter.json').read())
-    x = data['x'] - 1
-    jumpingParameter = open('jumpingParameter.json', 'w')
-    jumpingParameter.write("{ \"x\": {} }".format(x))
-    jumpingParameter.close()
+    data['x'] = int(data['x']) - 1
+    with open('jumpingParameter.json', 'w') as outfile:
+        json.dump(data, outfile)
+
+change_parameter()
