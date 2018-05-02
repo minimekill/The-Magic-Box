@@ -20,5 +20,3 @@ def change_parameter():
     data['x'] = int(data['x']) - 1
     with open('jumpingParameter.json', 'w') as outfile:
         json.dump(data, outfile)
-
-change_parameter()
