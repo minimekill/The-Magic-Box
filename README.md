@@ -17,7 +17,7 @@ Be able to handle and train a neural network that are controlling an element in 
 
 
 ## The intelligent jumping box, exam agenda:
-- Short intro  about Neural Networks
+- Short intro  about Machine Learning
 - About Machine Learning in python
 - Our approach on our jumping box game
 - Presentation of the game
