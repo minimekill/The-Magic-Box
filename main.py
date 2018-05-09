@@ -5,8 +5,9 @@
 
 import pygame as pg
 import random
-from neuralGame.settings import *
-from neuralGame.sprites import *
+from settings import *
+from sprites import *
+import decision_tree as dt
 
 
 class Game:
@@ -27,6 +28,7 @@ class Game:
         self.platforms = pg.sprite.Group()
         self.enemies = pg.sprite.Group()
         self.specialenemy = Enemy(550, 320, 30, 40)
+        self.enemies.add(self.specialenemy)
         self.player = Player(self)
         self.all_sprites.add(self.player, self.specialenemy)
         for plat in PLATFORM_LIST:
@@ -47,6 +49,7 @@ class Game:
             self.events()
             self.update()
             self.draw()
+            
 
     def update(self):
         # Game Loop - Update
@@ -55,14 +58,22 @@ class Game:
         # check if player hits a platform - only if falling
         if self.player.vel.y > 0:
             hits = pg.sprite.spritecollide(self.player, self.platforms, False)
+            enemy_hit = pg.sprite.spritecollide(self.player, self.enemies, False)
             if hits:
                 self.player.pos.y = hits[0].rect.top
                 self.player.vel.y = 0
+            if enemy_hit:
+                self.player.pos = vec(WIDTH / 4, HEIGHT / 4)
+                self.player.vel.y = 0
+                self.im_special = 600
+                dt.change_parameter()
 
     def events(self):
-        self.player.jump()
+        for enemy in self.enemies:
+            if dt.to_jump_or_not_to_jump(self.player.pos.x, enemy.rect.x):
+                self.player.jump()
         self.specialenemy.__init__(self.im_special, 320, 30, 40)
-        self.im_special -= 1
+        self.im_special -= 3
         # Game Loop - events
         for event in pg.event.get():
             # check for closing window

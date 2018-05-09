@@ -1,6 +1,6 @@
 # Sprite classes for platform game
 import pygame as pg
-from game.settings import *
+from settings import *
 vec = pg.math.Vector2
 
 
@@ -12,7 +12,7 @@ class Player(pg.sprite.Sprite):
         self.image.fill(YELLOW)
         self.rect = self.image.get_rect()
         self.rect.center = (WIDTH / 2, HEIGHT / 2)
-        self.pos = vec(WIDTH / 2, HEIGHT / 2)
+        self.pos = vec(WIDTH / 4, HEIGHT / 4)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
@@ -44,6 +44,9 @@ class Player(pg.sprite.Sprite):
             self.pos.x = WIDTH
 
         self.rect.midbottom = self.pos
+
+    def is_collided_with(self, sprite):
+        return self.rect.colliderect(sprite.rect)
 
 
 class Platform(pg.sprite.Sprite):
