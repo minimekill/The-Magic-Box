@@ -1,7 +1,9 @@
 import json
 
+
 def distance(x1, x2):
     return x2 - x1
+
 
 def to_jump_or_not_to_jump(x1, x2):
     out_distance = distance(x1, x2)
@@ -14,6 +16,7 @@ def to_jump_or_not_to_jump(x1, x2):
         return True
 
     return False
+
 
 def change_parameter():
     data = json.loads(open('jumpingParameter.json').read())
