@@ -12,7 +12,7 @@ def to_jump_or_not_to_jump(x1, x2):
 
     number = int(data['x'])
 
-    if number == out_distance:
+    if number >= out_distance - 3 and number <= out_distance + 3:
         return True
 
     return False

@@ -55,6 +55,9 @@ class Game:
         # Game Loop - Update
 
         self.all_sprites.update()
+        # check if the obstacle is behind the player and then reset it
+        if self.im_special <= 0:
+            self.im_special = 550
         # check if player hits a platform - only if falling
         if self.player.vel.y > 0:
             hits = pg.sprite.spritecollide(self.player, self.platforms, False)
@@ -65,7 +68,7 @@ class Game:
             if enemy_hit:
                 self.player.pos = vec(WIDTH / 4, HEIGHT / 4)
                 self.player.vel.y = 0
-                self.im_special = 600
+                self.im_special = 550
                 dt.change_parameter()
 
     def events(self):
