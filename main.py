@@ -72,15 +72,15 @@ class Game:
                 self.player.vel.y = 0
                 self.im_special = 550
                 if self.mode is 'decision_tree':
-                    dt.change_parameter()
+                    dt.change_parameter(enemy_hit[0].rect.h)
 
     def events(self):
         if self.mode is 'decision_tree':
             for enemy in self.enemies:
-                if dt.to_jump_or_not_to_jump(self.player.pos.x, enemy.rect.x):
+                if dt.to_jump_or_not_to_jump(self.player.pos.x, enemy.rect.x, enemy.rect.h) :
                     self.player.jump()
-        #self.copycat_enemy.__init__(self.im_special, 320, 30, 40)
-        self.bigbox_enemy.__init__(self.im_special, 280, 80, 80)
+        self.copycat_enemy.__init__(self.im_special, 320, 30, 40)
+        #self.bigbox_enemy.__init__(self.im_special, 280, 80, 80)
         self.im_special -= 3
         # Game Loop - events
         for event in pg.event.get():
