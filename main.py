@@ -19,6 +19,7 @@ class Game:
         pg.display.set_caption(TITLE)
         self.clock = pg.time.Clock()
         self.running = True
+        self.mode = 'decision_tree'
 
     def new(self):
         # start a new game
@@ -69,12 +70,14 @@ class Game:
                 self.player.pos = vec(WIDTH / 4, HEIGHT)
                 self.player.vel.y = 0
                 self.im_special = 550
-                dt.change_parameter()
+                if self.mode is 'decision_tree':
+                    dt.change_parameter()
 
     def events(self):
-        for enemy in self.enemies:
-            if dt.to_jump_or_not_to_jump(self.player.pos.x, enemy.rect.x):
-                self.player.jump()
+        if self.mode is 'decision_tree':
+            for enemy in self.enemies:
+                if dt.to_jump_or_not_to_jump(self.player.pos.x, enemy.rect.x):
+                    self.player.jump()
         self.specialenemy.__init__(self.im_special, 320, 30, 40)
         self.im_special -= 3
         # Game Loop - events
