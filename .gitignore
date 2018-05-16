@@ -5,3 +5,4 @@
 .idea/MagicBox.iml
 
 __pycache__/
+*.pyc
