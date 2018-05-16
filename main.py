@@ -66,7 +66,7 @@ class Game:
                 self.player.pos.y = hits[0].rect.top
                 self.player.vel.y = 0
             if enemy_hit:
-                self.player.pos = vec(WIDTH / 4, HEIGHT / 4)
+                self.player.pos = vec(WIDTH / 4, HEIGHT)
                 self.player.vel.y = 0
                 self.im_special = 550
                 dt.change_parameter()

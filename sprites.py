@@ -12,7 +12,7 @@ class Player(pg.sprite.Sprite):
         self.image.fill(YELLOW)
         self.rect = self.image.get_rect()
         self.rect.center = (WIDTH / 2, HEIGHT / 2)
-        self.pos = vec(WIDTH / 4, HEIGHT / 4)
+        self.pos = vec(WIDTH / 4, HEIGHT)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
