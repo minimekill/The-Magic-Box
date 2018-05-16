@@ -12,7 +12,7 @@ def to_jump_or_not_to_jump(x1, x2, enemy_height):
     if str(enemy_height) in data:
         number = int(data[str(enemy_height)])
 
-        if number >= out_distance - 3 and number <= out_distance + 3:
+        if out_distance - 3 <= number <= out_distance + 3:
             return True
 
     return False

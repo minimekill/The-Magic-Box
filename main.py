@@ -30,9 +30,10 @@ class Game:
         self.enemies = pg.sprite.Group()
         self.copycat_enemy = Enemy(550, 320, 30, 40)
         self.bigbox_enemy = Enemy(520, 280, 80, 80)
-        self.enemies.add(self.copycat_enemy, self.bigbox_enemy)
+        self.high_enemy = Enemy(520, 280, 20, 120)
+        self.enemies.add(self.copycat_enemy, self.bigbox_enemy, self.high_enemy)
         self.player = Player(self)
-        self.all_sprites.add(self.player, self.copycat_enemy, self.bigbox_enemy)
+        self.all_sprites.add(self.player, self.copycat_enemy, self.bigbox_enemy, self.high_enemy)
         for plat in PLATFORM_LIST:
             p = Platform(*plat)
             self.all_sprites.add(p)
@@ -58,7 +59,7 @@ class Game:
 
         self.all_sprites.update()
         # check if the obstacle is behind the player and then reset it
-        if self.im_special <= 0:
+        if self.im_special <= -1200:
             self.im_special = 550
         # check if player hits a platform - only if falling
         if self.player.vel.y > 0:
@@ -80,7 +81,8 @@ class Game:
                 if dt.to_jump_or_not_to_jump(self.player.pos.x, enemy.rect.x, enemy.rect.h) :
                     self.player.jump()
         self.copycat_enemy.__init__(self.im_special, 320, 30, 40)
-        #self.bigbox_enemy.__init__(self.im_special, 280, 80, 80)
+        self.bigbox_enemy.__init__(self.im_special + 400, 280, 80, 80)
+        self.high_enemy.__init__(self.im_special + 800, 200, 20, 160)
         self.im_special -= 3
         # Game Loop - events
         for event in pg.event.get():
