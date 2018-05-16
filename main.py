@@ -28,10 +28,11 @@ class Game:
         self.all_sprites = pg.sprite.Group()
         self.platforms = pg.sprite.Group()
         self.enemies = pg.sprite.Group()
-        self.specialenemy = Enemy(550, 320, 30, 40)
-        self.enemies.add(self.specialenemy)
+        self.copycat_enemy = Enemy(550, 320, 30, 40)
+        self.bigbox_enemy = Enemy(520, 280, 80, 80)
+        self.enemies.add(self.copycat_enemy, self.bigbox_enemy)
         self.player = Player(self)
-        self.all_sprites.add(self.player, self.specialenemy)
+        self.all_sprites.add(self.player, self.copycat_enemy, self.bigbox_enemy)
         for plat in PLATFORM_LIST:
             p = Platform(*plat)
             self.all_sprites.add(p)
@@ -78,7 +79,8 @@ class Game:
             for enemy in self.enemies:
                 if dt.to_jump_or_not_to_jump(self.player.pos.x, enemy.rect.x):
                     self.player.jump()
-        self.specialenemy.__init__(self.im_special, 320, 30, 40)
+        #self.copycat_enemy.__init__(self.im_special, 320, 30, 40)
+        self.bigbox_enemy.__init__(self.im_special, 280, 80, 80)
         self.im_special -= 3
         # Game Loop - events
         for event in pg.event.get():
