@@ -1,29 +1,16 @@
-import json
+import decision_tree_lower as dts
+import decision_tree_upper as dtu
 
-
-def distance(x1, x2):
-    return x2 - x1
-
+mode = "lower"
 
 def to_jump_or_not_to_jump(x1, x2, enemy_height):
-    out_distance = distance(x1, x2)
-
-    data = json.loads(open('jumpingParameter.json').read())
-    if str(enemy_height) in data:
-        number = int(data[str(enemy_height)])
-
-        if out_distance - 3 <= number <= out_distance + 3:
-            return True
-
-    return False
-
+    if mode is "upper":
+        return dtu.to_jump_or_not_to_jump(x1, x2, enemy_height)
+    elif mode is "lower":
+        return dts.to_jump_or_not_to_jump(x1, x2, enemy_height)
 
 def change_parameter(enemy_height):
-    data = json.loads(open('jumpingParameter.json').read())
-    if str(enemy_height) in data:
-        data[str(enemy_height)] = int(data[str(enemy_height)]) - 1
-    else:
-        data[str(enemy_height)] = 100
-    
-    with open('jumpingParameter.json', 'w') as outfile:
-        json.dump(data, outfile)
+    if mode is "upper":
+        dtu.change_parameter(enemy_height)
+    elif mode is "lower":
+        dts.change_parameter(enemy_height)

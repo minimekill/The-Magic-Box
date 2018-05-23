@@ -5,7 +5,7 @@ import random
 from settings import *
 from sprites import *
 #import decision_tree as dt
-import decision_tree2 as dt
+import decision_tree as dt
 
 
 class Game:
