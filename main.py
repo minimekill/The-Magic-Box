@@ -49,7 +49,6 @@ class Game:
             self.events()
             self.update()
             self.draw()
-            
 
     def update(self):
         # Game Loop - Update
@@ -75,7 +74,7 @@ class Game:
     def events(self):
         if self.mode is 'decision_tree':
             for enemy in self.enemies:
-                if dt.to_jump_or_not_to_jump(self.player.pos.x, enemy.rect.x, enemy.rect.h) :
+                if dt.to_jump_or_not_to_jump(self.player.pos.x, enemy.rect.x, enemy.rect.h):
                     self.player.jump()
         self.copycat_enemy.__init__(self.im_special, 320, 30, 40)
         self.bigbox_enemy.__init__(self.im_special + 400, 280, 80, 80)
@@ -113,7 +112,5 @@ g.show_start_screen()
 while g.running:
     g.new()
     g.show_go_screen()
-
-
 
 pg.quit()

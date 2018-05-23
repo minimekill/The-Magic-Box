@@ -1,5 +1,5 @@
 # game options/settings
-TITLE = "Learn the shit"
+TITLE = "Magic Box"
 WIDTH = 600
 HEIGHT = 400
 FPS = 60
@@ -9,12 +9,9 @@ PLAYER_ACC = 0.5
 PLAYER_FRICTION = -0.12
 PLAYER_GRAV = 0.8
 
-# Starting platforms
-#PLATFORM_LIST = [(0, HEIGHT - 40, WIDTH, 40), WIDTH / 2 - 50, HEIGHT * 3 / 4, 100, 20), (125, HEIGHT - 350, 100, 20), (350, 200, 100, 20),                 (175, 100, 50, 20)]
-
+# Starting platform and enemy
 PLATFORM_LIST = [(0, HEIGHT - 40, WIDTH, 40)]
 ENEMY_LIST = []
-
 
 # define colors
 WHITE = (255, 255, 255)
