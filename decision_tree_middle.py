@@ -10,9 +10,10 @@ def to_jump_or_not_to_jump(x1, x2, enemy_height):
 
     data_upper = json.loads(open('jumpingParameter.json').read())
     data_lower = json.loads(open('jumpingParameter2.json').read())
-    if str(enemy_height) in data_upper and str(enemy_height) in data_lower:
-        number_upper = int(data_upper[str(enemy_height)])
-        number_lower = int(data_lower[str(enemy_height)])
+    enemy_height = str(enemy_height)
+    if enemy_height in data_upper and enemy_height in data_lower:
+        number_upper = int(data_upper[enemy_height])
+        number_lower = int(data_lower[enemy_height])
 
         number_accumulated = number_upper - (number_upper - number_lower) / 2
 
