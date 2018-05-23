@@ -1,4 +1,4 @@
-<h1 style="text-align: center">The-Magic-Box</h1>
+<center><h1>The-Magic-Box</h1></center>
 
 
 ## Purpose:
