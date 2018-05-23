@@ -4,7 +4,8 @@ import pygame as pg
 import random
 from settings import *
 from sprites import *
-import decision_tree as dt
+#import decision_tree as dt
+import decision_tree2 as dt
 
 
 class Game:
@@ -27,7 +28,7 @@ class Game:
         self.enemies = pg.sprite.Group()
         self.copycat_enemy = Enemy(550, 320, 30, 40)
         self.bigbox_enemy = Enemy(520, 280, 80, 80)
-        self.high_enemy = Enemy(520, 280, 20, 120)
+        self.high_enemy = Enemy(800, 200, 20, 160)
         self.enemies.add(self.copycat_enemy, self.bigbox_enemy, self.high_enemy)
         self.player = Player(self)
         self.all_sprites.add(self.player, self.copycat_enemy, self.bigbox_enemy, self.high_enemy)
@@ -60,16 +61,17 @@ class Game:
         # check if player hits a platform - only if falling
         if self.player.vel.y > 0:
             hits = pg.sprite.spritecollide(self.player, self.platforms, False)
-            enemy_hit = pg.sprite.spritecollide(self.player, self.enemies, False)
             if hits:
                 self.player.pos.y = hits[0].rect.top
                 self.player.vel.y = 0
-            if enemy_hit:
-                self.player.pos = vec(WIDTH / 4, HEIGHT)
-                self.player.vel.y = 0
-                self.im_special = 550
-                if self.mode is 'decision_tree':
-                    dt.change_parameter(enemy_hit[0].rect.h)
+                
+        enemy_hit = pg.sprite.spritecollide(self.player, self.enemies, False)
+        if enemy_hit:
+            self.player.pos = vec(WIDTH / 4, HEIGHT)
+            self.player.vel.y = 0
+            self.im_special = 550
+            if self.mode is 'decision_tree':
+                dt.change_parameter(enemy_hit[0].rect.h)
 
     def events(self):
         if self.mode is 'decision_tree':
@@ -79,6 +81,7 @@ class Game:
         self.copycat_enemy.__init__(self.im_special, 320, 30, 40)
         self.bigbox_enemy.__init__(self.im_special + 400, 280, 80, 80)
         self.high_enemy.__init__(self.im_special + 800, 200, 20, 160)
+
         self.im_special -= 3
         # Game Loop - events
         for event in pg.event.get():
