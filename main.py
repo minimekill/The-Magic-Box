@@ -63,6 +63,9 @@ class Game:
         # check if the obstacle is behind the player and then reset it
         if self.im_special <= -1200:
             self.im_special = 550
+        # if the obstacle is behind the player it means the network did good and the memory can be reset
+            if self.mode == 'neural_network':
+                self.memory = []
         # check if player hits a platform - only if falling
         if self.player.vel.y > 0:
             hits = pg.sprite.spritecollide(self.player, self.platforms, False)
