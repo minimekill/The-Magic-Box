@@ -44,3 +44,4 @@ Be able to handle and train a neural network and a decision tree that are contro
 - Our approach on our jumping box game
 - Presentation of the game
 
+Authors: Peter, Alex, Mikkel & Joachim
