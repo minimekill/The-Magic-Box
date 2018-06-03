@@ -29,7 +29,8 @@ The method to have a neural network determain when to jump is on its own simple 
 Another issue will be how a choice is affected by the outcome of a game. For example, say we start the game, and the network starts jumping before the enemy box is even close. If it does succeed to jump over the enemy box, it will get rewarded for thoose random jumps to begin with.
 
 ## Goal:
-Be able to handle and train a neural network that are controlling an element in a game. To be able to feed it the right information and to determain how to proberly build it, and train it.
+Be able to handle and train a neural network and a decision tree that are controlling an element in a game. To be able to feed it the right information and to determain how to proberly build it, and train it.
+
 
 
 
