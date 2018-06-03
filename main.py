@@ -27,7 +27,6 @@ class Game:
     def new(self):
         # start a new game
         self.im_special = 550
-
         self.all_sprites = pg.sprite.Group()
         self.platforms = pg.sprite.Group()
         self.enemies = pg.sprite.Group()
@@ -63,7 +62,7 @@ class Game:
         # check if the obstacle is behind the player and then reset it
         if self.im_special <= -1200:
             self.im_special = 550
-        # if the obstacle is behind the player it means the network did good and the memory can be reset
+            # if the obstacle is behind the player it means the network did good and the memory can be reset
             if self.mode == 'neural_network':
                 self.memory = []
         # check if player hits a platform - only if falling
