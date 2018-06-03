@@ -12,9 +12,9 @@ The "mode" determains which machine learning module to use, by either writing 'n
 
 
 ## What is going on:
-The program is pretty much dividied into 3 parts. 
+The program is pretty much divided into 3 parts. 
 
-The first part is the game it self, run from the main. ?????
+The first part is the game it self, run from the main. We use the PyGame module to build the game-world with. The game contains 3 key parts: Sprites, where we have the classes for the game objects, ready for instantiation. Then we have the Settings, where we set various properties, used in the game. Lastly we have the Main, where all things combine. Main is constructed by 5 key methods, new: where we instantiate our class objects and PyGame dependencies - lastly starts the game loop, run: where our gameloop is defined, update: where we can reset things during the game, events: where the box actually jumps and enemies move. Its also possible to control box by keyboard, arrows and space, draw: here all sprites get added and game is shown to the viewer. 
 
 The second part is the decision tree... ???
 
