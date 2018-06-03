@@ -18,7 +18,9 @@ The first part is the game it self, run from the main. ?????
 
 The second part is the decision tree... ???
 
-finally the neural network makes up the last part .....
+Finally the neural network makes up the last part. At the game start a neural network is created with random weights and stored in the game class in the network value. Every frame of the game, the distance to the enemy box is made, and divided by the total space between the enemybox and the player box. This number is then sent to the neural network along with the actual network which the game holds to the feed forward function in the magic_box_brain module, and a output array is returned. This array is the outputs of all the neurons, but we are only interested in the final neuron output. Then we determain wether this value is closer to 1.0 or 0.0 and turn that into wether to jump or not. If the game class learning value is set to yes, then after each time we ask the neural network, we store the result to the memory value. If the box fails to jump over the enemy box, we call the backprogate function in magic_box_brain module and give it the memory value along, to update the network and hopefully make it better at jumping.
+
+
 
 
 ## Obstacles:
